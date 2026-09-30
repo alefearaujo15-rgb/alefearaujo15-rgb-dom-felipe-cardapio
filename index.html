@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080808" />
+  <title>Dom Felipe Pizzaria | Cardápio</title>
+  <link rel="icon" href="assets/logo-reduzida.png?v=2" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-loader" id="page-loader" aria-label="Carregando cardápio"><span class="loader-mark">D<span>F</span></span><span class="loader-line"></span></div>
+  <header class="topbar">
+    <a class="brand" href="#cardapio" aria-label="Dom Felipe Pizzaria">
+      <img src="assets/logo-reduzida.png?v=2" alt="Dom Felipe Pizzaria" />
+    </a>
+    <button class="cart-button" id="open-cart" aria-label="Abrir carrinho">Carrinho <span id="cart-count">0</span></button>
+  </header>
+
+  <main id="cardapio">
+    <section class="intro reveal">
+      <div>
+        <p class="eyebrow">PARATINGA • DELIVERY</p>
+        <h1>Escolha seu sabor.<br /><em>A gente prepara.</em></h1>
+        <p class="intro-copy">Monte sua pizza do seu jeito e finalize o pedido direto pelo WhatsApp.</p>
+      </div>
+      <img class="hero-mark" src="assets/logo-reduzida.png?v=2" alt="" aria-hidden="true" />
+    </section>
+
+    <nav class="category-nav" aria-label="Categorias">
+      <a href="#pizzas">Pizzas</a><a href="#bebidas">Bebidas</a>
+    </nav>
+
+    <section id="pizzas" class="menu-section reveal">
+      <div class="section-heading"><div><p class="eyebrow">FORNO A LENHA</p><h2>Escolha o tamanho</h2></div><span class="hint">Até 2 sabores na G · até 2 na M · 1 na P</span></div>
+      <div class="size-grid" id="size-options"></div>
+      <div class="flavor-panel" id="flavor-panel" hidden>
+        <div class="panel-heading"><div><p class="eyebrow">MONTE SUA PIZZA</p><h3 id="selected-size-title">Pizza M</h3></div><span id="flavor-limit" class="pill"></span></div>
+        <p class="muted">Selecione até o limite de sabores para este tamanho.</p>
+        <div class="pizza-quantity"><span>Quantidade de pizzas</span><div class="quantity-control"><button type="button" id="pizza-minus" aria-label="Diminuir quantidade">−</button><strong id="pizza-quantity">1</strong><button type="button" id="pizza-plus" aria-label="Aumentar quantidade">+</button></div></div>
+        <div class="flavor-grid" id="flavor-list"></div>
+        <button class="primary full" id="add-pizza">Adicionar pizza ao carrinho</button>
+      </div>
+    </section>
+
+    <section id="bebidas" class="menu-section drinks-section reveal">
+      <div class="section-heading"><div><p class="eyebrow">PARA ACOMPANHAR</p><h2>Bebidas</h2></div></div>
+      <div class="drink-groups" id="drink-list"></div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">SEU PEDIDO</p><h2>Carrinho</h2></div><button class="icon-button" id="close-cart" aria-label="Fechar carrinho">×</button></div>
+    <div id="cart-items" class="cart-items"><p class="empty">Seu carrinho está vazio.</p></div>
+    <div class="cart-footer"><div class="total-row"><span>Total estimado</span><strong id="cart-total">R$ 0,00</strong></div><button class="primary full" id="checkout">Continuar para entrega</button></div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <dialog id="checkout-dialog">
+    <form method="dialog" id="checkout-form">
+      <button class="icon-button close-dialog" id="close-checkout" type="button" aria-label="Fechar">×</button>
+      <p class="eyebrow">ÚLTIMO PASSO</p><h2>Dados para entrega</h2><p class="muted">Seu pedido será enviado para a Dom Felipe no WhatsApp.</p>
+      <label>Seu nome<input required id="customer-name" placeholder="Como podemos te chamar?" /></label>
+      <label>Endereço de entrega<input required id="customer-address" placeholder="Rua, número e complemento" /></label>
+      <label>Forma de pagamento<select id="payment"><option>Pix</option><option>Dinheiro</option><option>Cartão na entrega</option></select></label>
+      <p class="city-note">Entrega exclusiva em <strong>Paratinga</strong> — Bahia</p>
+      <button class="primary full" type="submit">Enviar pedido pelo WhatsApp</button>
+    </form>
+  </dialog>
+  <footer><img src="assets/logo-reduzida.png?v=2" alt="Dom Felipe" /><span>Tradição, qualidade e sabor que marcam.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
