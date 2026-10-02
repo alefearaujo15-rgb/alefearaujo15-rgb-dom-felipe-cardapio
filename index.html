@@ -32,13 +32,14 @@
     </nav>
 
     <section id="pizzas" class="menu-section reveal">
-      <div class="section-heading"><div><p class="eyebrow">FORNO A LENHA</p><h2>Escolha o tamanho</h2></div><span class="hint">Até 2 sabores na G · até 2 na M · 1 na P</span></div>
+      <div class="section-heading"><div><p class="eyebrow">FORNO A LENHA</p><h2>Escolha o tamanho</h2></div><span class="hint">Até 2 sabores em todos os tamanhos</span></div>
       <div class="size-grid" id="size-options"></div>
       <div class="flavor-panel" id="flavor-panel" hidden>
         <div class="panel-heading"><div><p class="eyebrow">MONTE SUA PIZZA</p><h3 id="selected-size-title">Pizza M</h3></div><span id="flavor-limit" class="pill"></span></div>
         <p class="muted">Selecione até o limite de sabores para este tamanho.</p>
         <div class="pizza-quantity"><span>Quantidade de pizzas</span><div class="quantity-control"><button type="button" id="pizza-minus" aria-label="Diminuir quantidade">−</button><strong id="pizza-quantity">1</strong><button type="button" id="pizza-plus" aria-label="Aumentar quantidade">+</button></div></div>
         <div class="flavor-grid" id="flavor-list"></div>
+        <fieldset class="crust-options"><legend>Borda da pizza</legend><label><input type="radio" name="crust" value="Sem borda" checked /> Sem borda</label><label><input type="radio" name="crust" value="Borda de Catupiry" /> Borda de Catupiry</label><label><input type="radio" name="crust" value="Borda de Cheddar" /> Borda de Cheddar</label></fieldset>
         <button class="primary full" id="add-pizza">Adicionar pizza ao carrinho</button>
       </div>
     </section>
@@ -63,6 +64,7 @@
       <label>Seu nome<input required id="customer-name" placeholder="Como podemos te chamar?" /></label>
       <label>Endereço de entrega<input required id="customer-address" placeholder="Rua, número e complemento" /></label>
       <label>Forma de pagamento<select id="payment"><option>Pix</option><option>Dinheiro</option><option>Cartão na entrega</option></select></label>
+      <div id="change-fields" class="change-fields" hidden><label>Precisa de troco?<select id="needs-change"><option value="nao">Não</option><option value="sim">Sim</option></select></label><label id="cash-paid-wrap" hidden>Vai pagar quanto?<input id="cash-paid" inputmode="decimal" placeholder="Ex.: 50,00" /></label><p id="change-preview" class="city-note" hidden></p></div>
       <p class="city-note">Entrega exclusiva em <strong>Paratinga</strong> — Bahia</p>
       <button class="primary full" type="submit">Enviar pedido pelo WhatsApp</button>
     </form>
