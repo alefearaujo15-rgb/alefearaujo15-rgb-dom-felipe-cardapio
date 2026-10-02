@@ -20,7 +20,6 @@ document.querySelector('#checkout-form').onsubmit=e=>{e.preventDefault();const n
 const renderFlavorsBase=renderFlavors;renderFlavors=()=>{renderFlavorsBase();document.querySelectorAll('#flavor-list .flavor').forEach((el,i)=>{const price=document.createElement('b');price.className='flavor-price';price.textContent=money(flavorPrice(flavors[i][0]));el.querySelector('span').appendChild(price)})};
 document.addEventListener('click',e=>{if(e.target.id==='add-pizza')window.__pizzaPrice=Math.max(...selectedFlavors.map(i=>flavorPrice(flavors[i][0])));},true);document.querySelector('#add-pizza').addEventListener('click',()=>{const item=cart.at(-1);if(item?.type==='pizza'&&window.__pizzaPrice){item.price=window.__pizzaPrice;renderCart()}});
 renderSizes();renderFlavors();renderDrinks();renderCart();
-window.addEventListener('load',()=>setTimeout(()=>document.body.classList.add('loaded'),450));
 const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 document.querySelectorAll('.size-card,.flavor,.drink-group,.drink-row').forEach((el,i)=>el.style.setProperty('--delay',`${Math.min(i%8,7)*45}ms`));
